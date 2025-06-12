@@ -9,14 +9,15 @@ def setup_logger(name):
     os.makedirs(log_dir, exist_ok=True)
 
     # logging configuration
-    logger = logging.getLogger('data_ingestion')
+    logger = logging.getLogger(name)
     logger.setLevel('DEBUG')
     if not logger.handlers:
         # Console Handler
         console_handler = logging.StreamHandler()
         console_handler.setLevel('DEBUG')
         # File Handler
-        log_file_path = os.path.join(log_dir, 'data_ingestion.log')
+        log_filename = f'{name}.log'
+        log_file_path = os.path.join(log_dir, log_filename)
         file_handler = logging.FileHandler(log_file_path)
         file_handler.setLevel('DEBUG')
         # Formatter
