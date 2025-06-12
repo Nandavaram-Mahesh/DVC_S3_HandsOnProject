@@ -3,9 +3,9 @@ import os
 from sklearn.model_selection import train_test_split
 import logging
 import yaml
-from logging_config import logger
+from logging_config import setup_logger
 
-
+logger = setup_logger('data_ingestion')
 def load_params(params_path: str) -> dict:
     """Load parameters from a YAML file."""
     try:
